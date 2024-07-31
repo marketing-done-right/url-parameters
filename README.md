@@ -6,3 +6,6 @@
 
 ## Description
 A plugin to access URL parameters and display conditional content.
+
+## License
+Distributed under the GPL v3 License. See [LICENSE](LICENSE) for more information.
