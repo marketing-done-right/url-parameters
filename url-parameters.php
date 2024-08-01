@@ -42,13 +42,13 @@ function if_url_param($atts, $content = null) {
             'is'     => ''
         ), $atts, 'ifurlparam');
 
-    $param_value = isset($_GET[$atts['param']]) ? sanitize_text_field($_GET[$atts['param']]) : '';
+    $param_value = isset($_GET[$atts['param']]) ? sanitize_text_field($_GET[$atts['param']]) : null;
 
     if ($atts['is'] && $param_value === $atts['is']) {
         return do_shortcode($content);
     }
 
-    if ($atts['empty'] && empty($param_value)) {
+    if ($atts['empty'] && $atts['empty'] == '1' && empty($param_value)) {
         return do_shortcode($content);
     }
 
