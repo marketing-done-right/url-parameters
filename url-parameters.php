@@ -2,7 +2,7 @@
 /**
  * Plugin Name: URL Parameters
  * Description: A plugin to access URL parameters and display conditional content.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Hans Steffens & Marketing Done Right LLC
  * Author URI:  https://marketingdr.co
  * License: GPL v3 or later
