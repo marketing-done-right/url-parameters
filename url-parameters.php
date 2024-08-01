@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: URL Parameters
- * Description: A plugin to access URL parameters and display conditional content.
+ * Description: A plugin to access URL parameters and display conditional content based on the Query String of the URL.
  * Version: 1.0.1
  * Author: Hans Steffens & Marketing Done Right LLC
  * Author URI:  https://marketingdr.co
