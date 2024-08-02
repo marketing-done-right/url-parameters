@@ -43,7 +43,9 @@ function if_url_param($atts, $content = null) {
         ), $atts, 'ifurlparam');
 
     $param_value = isset($_GET[$atts['param']]) ? sanitize_text_field($_GET[$atts['param']]) : null;
-    $param_value = str_replace('-', ' ', $param_value); // Replace dashes with spaces
+    if ($param_value !== null) {// If the parameter is found
+        $param_value = str_replace('-', ' ', $param_value); // Replace dashes with spaces
+    }
 
     if ($atts['is'] && $param_value === $atts['is']) {
         return do_shortcode($content);
