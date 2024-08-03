@@ -2,7 +2,7 @@
 /**
  * Plugin Name: URL Parameters
  * Description: A plugin to access URL parameters and display conditional content based on the Query String of the URL.
- * Version: 1.0.2
+ * Version: 1.0.4
  * Author: Hans Steffens & Marketing Done Right LLC
  * Author URI:  https://marketingdr.co
  * License: GPL v3 or later
@@ -48,21 +48,20 @@ function if_url_param($atts, $content = null) {
         ), $atts, 'ifurlparam');
 
     $param_value = isset($_GET[$atts['param']]) ? sanitize_text_field($_GET[$atts['param']]) : null;
+
+    // If the 'is' attribute is set and matches the parameter value
+    if (!empty($atts['is']) && $param_value === $atts['is']) {
+        return do_shortcode($content);
+    }
+
+    // If the 'empty' attribute is set and the parameter value is empty
+    if (!empty($atts['empty']) && $atts['empty'] == '1' && empty($param_value)) {
+        return do_shortcode($content);
+    }
+
     // Check if the value is numeric or contains only numbers and dashes
     if ($param_value !== null && !preg_match('/^[0-9-]+$/', $param_value)) {
         $param_value = str_replace('-', ' ', $param_value);
-    }
-
-    if ($atts['is'] && $param_value === $atts['is']) {
-        return do_shortcode($content);
-    }
-
-    if ($atts['empty'] && $atts['empty'] == '1' && empty($param_value)) {
-        return do_shortcode($content);
-    }
-
-    if (!empty($param_value) && !$atts['is']) {
-        return do_shortcode($content);
     }
 
     return '';
