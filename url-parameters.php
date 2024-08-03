@@ -2,7 +2,7 @@
 /**
  * Plugin Name: URL Parameters
  * Description: A plugin to access URL parameters and display conditional content based on the Query String of the URL.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Hans Steffens & Marketing Done Right LLC
  * Author URI:  https://marketingdr.co
  * License: GPL v3 or later
@@ -25,7 +25,12 @@ function display_url_param($atts) {
     foreach ($params as $param) {
         $param = trim($param);
         if (isset($_GET[$param]) && !empty($_GET[$param])) {
-            return str_replace('-', ' ', sanitize_text_field($_GET[$param]));
+            $value = sanitize_text_field($_GET[$param]);
+            // Check if the value is numeric or contains only numbers and dashes
+            if (!preg_match('/^[0-9-]+$/', $value)) {
+                $value = str_replace('-', ' ', $value);
+            }
+            return $value;
         }
     }
 
@@ -43,8 +48,9 @@ function if_url_param($atts, $content = null) {
         ), $atts, 'ifurlparam');
 
     $param_value = isset($_GET[$atts['param']]) ? sanitize_text_field($_GET[$atts['param']]) : null;
-    if ($param_value !== null) {// If the parameter is found
-        $param_value = str_replace('-', ' ', $param_value); // Replace dashes with spaces
+    // Check if the value is numeric or contains only numbers and dashes
+    if ($param_value !== null && !preg_match('/^[0-9-]+$/', $param_value)) {
+        $param_value = str_replace('-', ' ', $param_value);
     }
 
     if ($atts['is'] && $param_value === $atts['is']) {

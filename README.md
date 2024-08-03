@@ -70,15 +70,8 @@ Contributions are what make the open source community such an amazing place to l
 4. Push to the Branch (git push origin feature/AmazingFeature)
 5. Open a Pull Request
 
-# Changelog
-
-## 1.0.1
-- Added support for replacing dashes with spaces in URL parameter values.
-- Improved handling of empty and specific value checks in conditional content.
-
-## 1.0.0
-- Initial release.
-- Shortcodes to display URL parameters and conditionally display content based on URL parameters.
+## Changelog
+See the [CHANGELOG](CHANGELOG.md) for a full list of changes and additions.
 
 ## License
 Distributed under the GPL v3 License. See [LICENSE](LICENSE) for more information.
