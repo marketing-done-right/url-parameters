@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.1] - 2024-08-08
+
+- Added nonce verification for URL parameters in shortcodes
+- Enhanced sanitization and validation of URL parameters
+- Ensured readme.txt follows the required format for the WordPress.org plugin repository
+
 ## [1.1.0] - 2024-08-08
 
 ### Changed

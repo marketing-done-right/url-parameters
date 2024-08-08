@@ -17,6 +17,11 @@ if (!defined('ABSPATH')) {
 
 // Shortcode to display URL parameter
 function display_url_param($atts) {
+    // Verify nonce before processing if it exists
+    if (isset($_GET['nonce']) && !wp_verify_nonce($_GET['nonce'], 'url_parameters_nonce')) {
+        return 'Invalid nonce';
+    }
+
     $atts = shortcode_atts(
         array(
             'parameter' => '',
@@ -42,6 +47,11 @@ add_shortcode('url_param', 'URLParameters\display_url_param');
 
 // Shortcode for conditional display based on URL parameter
 function if_url_param($atts, $content = null) {
+    // Verify nonce before processing if it exists
+    if (isset($_GET['nonce']) && !wp_verify_nonce($_GET['nonce'], 'url_parameters_nonce')) {
+        return 'Invalid nonce';
+    }
+
     $atts = shortcode_atts(
         array(
             'param'  => '',
