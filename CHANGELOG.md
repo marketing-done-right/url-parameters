@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0] - 2024-08-08
+
+### Changed
+- Introduced 'URLParameters' namespace to encapsulate all plugin functions.
+- Updated shortcode registrations to reference namespaced functions.
+- Improved code organization and adherence to WordPress coding standards.
+
 ## [1.0.2] - 2024-08-02
 
 ### Added

@@ -2,12 +2,14 @@
 /**
  * Plugin Name: URL Parameters
  * Description: A plugin to access URL parameters and display conditional content based on the Query String of the URL.
- * Version: 1.0.4
+ * Version: 1.1.0
  * Author: Hans Steffens & Marketing Done Right LLC
  * Author URI:  https://marketingdr.co
  * License: GPL v3 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
+
+namespace URLParameters;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -36,7 +38,7 @@ function display_url_param($atts) {
 
     return sanitize_text_field($atts['default']);
 }
-add_shortcode('url_param', 'display_url_param');
+add_shortcode('url_param', 'URLParameters\display_url_param');
 
 // Shortcode for conditional display based on URL parameter
 function if_url_param($atts, $content = null) {
@@ -66,4 +68,4 @@ function if_url_param($atts, $content = null) {
 
     return '';
 }
-add_shortcode('ifurlparam', 'if_url_param');
+add_shortcode('ifurlparam', 'URLParameters\if_url_param');
