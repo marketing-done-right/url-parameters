@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.2.0] - 2024-08-10
+
+- Updated shortcode tags to 'url_query' and 'if_url_query' to avoid conflicts with other plugins.
+- Improved consistency and readability of shortcode tags.
+
 ## [1.1.1] - 2024-08-08
 
 - Added nonce verification for URL parameters in shortcodes

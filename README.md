@@ -25,20 +25,20 @@ The URL Parameters WordPress plugin allows you to access URL parameters and disp
 
 ### Displaying URL Parameter
 
-Use the `[url_param]` shortcode to display the value of a URL parameter. It accepts two attributes:
-- `parameter`: The name of the URL parameter to display.
+Use the `[url_query]` shortcode to display the value of a URL parameter. It accepts two attributes:
+- `param`: The name of the URL parameter to display.
 - `default`: The default value to display if the URL parameter is not set.
 
 #### Example 
 
 ```plaintext
-[url_param parameter="city" default="Cleveland"] 
+[url_query param="city" default="Cleveland"] 
 ```
 In this example, the shortcode will display the value of the `city` URL parameter. If the `city` parameter is not set in the URL, the shortcode will display "Cleveland" as the default value. 
 
 ### Conditional Content Based on URL Parameter
 
-Use the `[ifurlparam]` shortcode to conditionally display content based on the value of a URL parameter. It accepts three attributes:
+Use the `[if_url_query]` shortcode to conditionally display content based on the value of a URL parameter. It accepts three attributes:
 
 - `param`: The name of the URL parameter to check.
 - `empty`: A flag to check if the URL parameter is empty.
@@ -47,7 +47,7 @@ Use the `[ifurlparam]` shortcode to conditionally display content based on the v
 #### Example
 
 ```plaintext
-[ifurlparam param="utm_campaign" is="summer" empty="1"]This is a summer campaign![/ifurlparam] 
+[if_url_query param="utm_campaign" is="summer" empty="1"]This is a summer campaign![/if_url_query] 
 ```
 In this example, the shortcode will display "This is a summer campaign!" if the `utm_campaign` URL parameter is set to "summer" or if the  `utm_campaign` parameter is empty. 
 
@@ -56,7 +56,7 @@ In this example, the shortcode will display "This is a summer campaign!" if the 
 You can specify multiple parameters separated by commas. The plugin will check for each parameter in order until a matching one is found and return that. If no parameters match, the default will be returned.
 
 ```plaintext
-[url_param parameter="FirstName, first, name" default="Friend"]
+[url_query param="FirstName, first, name" default="Friend"]
 ```
 In this example, the shortcode will check for `FirstName`, if not found, then `first`, if not found, then `name`. If none are found, it will return "Friend".
 
